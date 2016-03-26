@@ -42,10 +42,9 @@ public:
             if((shell = getenv("SHELL")) == 0)
                 shell = "/bin/sh";
 
-            fprintf(stderr, "%s -i -c '%s'\n", shell, choice.c_str());
+            fprintf(stderr, "%s -c '%s'\n", shell, choice.c_str());
 
-            // -i -c was tested with both bash and zsh.
-            exit(execl(shell, shell, "-i", "-c",  choice.c_str(), 0));
+            exit(execl(shell, shell, "-c",  choice.c_str(), 0));
         }
 
         // +1 b/c there must be whitespace we add back later...
